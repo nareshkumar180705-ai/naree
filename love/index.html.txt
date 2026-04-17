@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Pooja ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #000428, #004e92);
+    color: white;
+    text-align: center;
+}
+
+/* Lock Screen */
+#lockScreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    width: 120px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #ff4e8a;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+/* Main Page */
+#mainPage {
+    display: none;
+    padding: 20px;
+}
+
+h1 {
+    color: #ff9acb;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Heart animation */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: pink;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-100vh);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOCK SCREEN -->
+<div id="lockScreen">
+    <h2>Enter Passcode 🔐</h2>
+    <input type="password" id="code" maxlength="4"><br>
+    <button onclick="checkCode()">Unlock</button>
+    <p id="error"></p>
+</div>
+
+<!-- MAIN PAGE -->
+<div id="mainPage">
+    <h1>Happy Birthday Pooja ❤️</h1>
+
+    <div class="message">
+        Pooja… 💖<br><br>
+        Unna first time paatha moment lendhu, en life la oru special feel vandhuduchu.  
+        Un smile, un voice, un presence — ellame enaku romba mukkiyam.  
+
+        Enaku theriyum, words la full ah solla mudiyadhu…  
+        aana nee en life la irukradhu dhan enaku biggest happiness.  
+
+        Un kooda iruka every small moment kooda enaku periya memory.  
+        Future la enna nadandhalum…  
+        naan un kooda iruka aasai dhaan.  
+
+        Happy Birthday da… ❤️  
+        Always smile pannitu iru… naan iruken. 💫
+    </div>
+
+    <br>
+
+    <!-- PHOTO (later you replace) -->
+    <img src="your-photo.jpg" width="250" style="border-radius:15px;">
+
+    <!-- MUSIC -->
+    <audio autoplay loop>
+        <source src="munbevaa.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+function checkCode() {
+    var code = document.getElementById("code").value;
+    if(code === "2701") {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+        createHearts();
+    } else {
+        document.getElementById("error").innerText = "Wrong Passcode 💔";
+    }
+}
+
+// Hearts animation
+function createHearts() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.innerHTML = "❤️";
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }, 300);
+}
+</script>
+
+</body>
+</html>
